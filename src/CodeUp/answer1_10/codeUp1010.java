@@ -1,4 +1,4 @@
-package CodeUp;
+package CodeUp.answer1_10;
 
 import java.util.Scanner;
 
