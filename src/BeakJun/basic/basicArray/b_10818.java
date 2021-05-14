@@ -7,13 +7,14 @@ public class b_10818 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int N = scanner.nextInt();
-        int[] array = new int[N];
-        for (int i = 0; i < N; i++) {
-            array[i] = scanner.nextInt();
-        }
-        int min = Arrays.stream(array).min().getAsInt();
-        int max = Arrays.stream(array).max().getAsInt();
+        int[] arr = new int[N];
 
-        System.out.println(min + " " + max);
+        for (int i = 0; i < N; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        scanner.close();
+
+        Arrays.sort(arr);
+        System.out.println(arr[0] + " " + arr[N-1]);
     }
 }
