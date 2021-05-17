@@ -12,6 +12,7 @@ public class b_2562 {
 
         for (int i = 0; i < N.length; i++) {
             N[i] = scanner.nextInt();
+
         }
 
         for (int i = 0; i < N.length; i++) {
