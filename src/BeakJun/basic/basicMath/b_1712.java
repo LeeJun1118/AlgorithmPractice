@@ -14,7 +14,7 @@ public class b_1712 {
         int B = Integer.parseInt(token.nextToken());
         int C = Integer.parseInt(token.nextToken());
 
-        if (C-B < 0)
+        if (C-B <= 0)
             System.out.println("-1");
         else
             System.out.println(A/(C-B)+1);
