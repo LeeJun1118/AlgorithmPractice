@@ -14,9 +14,7 @@ public class b_10757 {
         int zero = 0;
         String sum = "";
         int loop = 0;
-        if (A.length <= B.length)
-            loop = A.length;
-        else loop = B.length;
+        loop = Math.min(A.length, B.length);
 
         for (int i = 1; i <= loop; i++) {
             int s = Integer.parseInt(A[A.length - i]) + Integer.parseInt(B[B.length - i]) + zero;
