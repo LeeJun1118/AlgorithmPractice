@@ -13,22 +13,22 @@ public class b_1929 {
         int M = Integer.parseInt(str[0]);
         int N = Integer.parseInt(str[1]);
 
-        //M과 N 사이
-        for (int i = M; i <= N; i++) {
-            boolean isPrime = true;
-            if (i <= 1) {
-            } else if (i == 2) {
-                System.out.println(2);
-                continue;
-            } else {
-                for (int j = 2; j <= i/2 + 1; j++) {
-                    if (i % j == 0){
-                        isPrime = false;
-                    }
-                }
-                if (isPrime)
-                    System.out.println(i);
+        boolean[] prime = new boolean[N + 1];
+
+        prime[0] = prime[1] = true;
+
+        //N의 제곱근까지
+        for (int i = 2; i <= Math.sqrt(N); i++) {
+            //제곱근보다 작은 수들의 배수들을 true로 바꿈
+            for (int j = i * i; j <= N; j = j + i) {
+                prime[j] = true;
             }
+        }
+
+        //false인 것들 찾아 인덱스 출력
+        for (int i = M; i < prime.length; i++) {
+            if (!prime[i])
+                System.out.println(i);
         }
     }
 }
