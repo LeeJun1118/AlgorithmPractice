@@ -15,21 +15,9 @@ public class b_1085 {
         int w = Integer.parseInt(st.nextToken());
         int h = Integer.parseInt(st.nextToken());
 
-        int minX = -1;
-        int minY = -1;
+        int minX = Math.min(w - x, x);
+        int minY = Math.min(h - y, y);
 
-        if (w - x > x)
-            minX = x;
-        else
-            minX = w - x;
-
-        if (h - y > y)
-            minY = y;
-        else
-            minY = h - y;
-
-        if (minX > minY)
-            System.out.println(minY);
-        else System.out.println(minX);
+        System.out.println(Math.min(minX,minY));
     }
 }
