@@ -23,22 +23,24 @@ public class b_1002 {
             arr = bufferedReader.readLine().split(" ");
 
             // 각각의 좌표
-            double jx = Math.abs(Double.parseDouble(arr[0]));
-            double jy = Math.abs(Double.parseDouble(arr[1]));
-            double jr = Math.abs(Double.parseDouble(arr[2]));
-            double bx = Math.abs(Double.parseDouble(arr[3]));
-            double by = Math.abs(Double.parseDouble(arr[4]));
-            double br = Math.abs(Double.parseDouble(arr[5]));
+            double jxAbs = Math.abs(Double.parseDouble(arr[0]));
+            double jyAbs = Math.abs(Double.parseDouble(arr[1]));
+            double bxAbs = Math.abs(Double.parseDouble(arr[3]));
+            double byAbs = Math.abs(Double.parseDouble(arr[4]));
+
+            double jx = Double.parseDouble(arr[0]);
+            double jy = Double.parseDouble(arr[1]);
+            double jr = Double.parseDouble(arr[2]);
+            double bx = Double.parseDouble(arr[3]);
+            double by = Double.parseDouble(arr[4]);
+            double br = Double.parseDouble(arr[5]);
 
             // J,B 사이의 거리 구하기
-            double jb_x = Math.abs(jx - bx);
-            double jb_y = Math.abs(jy - by);
-            double jb_distance = Math.sqrt(Math.pow(jb_x, 2) + Math.pow(jb_y, 2));
+            double jb_x = Math.abs(jxAbs - bxAbs);
+            double jb_y = Math.abs(jyAbs - byAbs);
 
             // r 과의 거리 합
             double r_sum = Integer.parseInt(arr[2]) + Integer.parseInt(arr[5]);
-
-            //내접, 외접, 포함, 교접, else
 
             // 둘의 좌표가 같을 때
             if (jx == bx && jy == by) {
@@ -47,26 +49,20 @@ public class b_1002 {
                 else
                     System.out.println(0);
             }
-            // J 원 안에 B 원이 있고 R이 b가 더 작을 때
-            else if ((Math.abs(jx + jr) > Math.abs(bx + br) && Math.abs(jx - jr) > Math.abs(bx - br)) &&
-                    Math.abs(jy + jr) > Math.abs(by + br) && Math.abs(jy - jr) > Math.abs(by - br)) {
-            }
-            // B 안에 J가 있을 때
-            else if (jx + jr < bx + br && jy + jr < by + br) {
-
-            }
-
-
             //좌표가 다를 때
             else {
-                if (jb_distance == r_sum)
-                    System.out.println(1);
-                else if (jb_distance < r_sum)
-                    System.out.println(2);
-                else if (jb_distance > r_sum)
+                // 한 원이 다른 원 안에 있는데 R 이 서로 다를 때
+                if (jxAbs + jr > bxAbs + br && jyAbs + jr > byAbs + br)
                     System.out.println(0);
+                // 내접할 때
+                else if ((jxAbs + jr == bxAbs + br || jyAbs + jr > byAbs + br) || (jxAbs + jr > bxAbs + br || jyAbs + jr == byAbs + br))
+                    System.out.println(1);
+                // 겹치는 곳이 두 곳 생길 때
+                else if ((jx + jr > bx - br || jy + jr > by - br) || (bx + br > jx - jr || by + br > jy - jr))
+                    System.out.println(2);
+                // 외접할때 코드 작성 필요함
                 else
-                    System.out.println(-1);
+                    System.out.println(0);
             }
         }
     }
