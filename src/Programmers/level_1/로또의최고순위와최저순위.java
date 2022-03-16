@@ -1,6 +1,6 @@
 package Programmers.level_1;
 
-public class lotto {
+public class 로또의최고순위와최저순위 {
     public static void main(String[] args) {
         int[] lottos = {1, 2, 3, 4, 5, 6};
         int[] win_nums = {5, 3, 7, 8, 9, 3};

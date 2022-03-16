@@ -2,7 +2,7 @@ package Programmers.level_1;
 
 import java.util.Arrays;
 
-public class Matrix_addition {
+public class 행렬의덧셈 {
     public static void main(String[] args) {
         int[][] arr1 =
                 {{1}, {2}};

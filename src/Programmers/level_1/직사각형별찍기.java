@@ -2,7 +2,7 @@ package Programmers.level_1;
 
 import java.util.Scanner;
 
-public class star_square {
+public class 직사각형별찍기 {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
